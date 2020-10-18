@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">UCVSesion7Trabajos</string>
+    <string name="appTitulo">Administracion de Hospital Cayetano Heredia</string>
+    <string name="registrar_medico">Registrar Medico</string>
+    <string name="registrar_paciente">Registrar Paciente</string>
+    <string name="agendar_cita">Agendar Cita</string>
+    <string name="listar_citas">Listar Citas</string>
+    <string name="registrar">Registrar</string>
+    <string name="telefono">Telefono</string>
+    <string name="correo">Correo</string>
+    <string name="apellido">Apellido</string>
+    <string name="nombre">Nombre</string>
+    <string name="especialidad">Especialidad</string>
+    <string name="direccion">Direccion</string>
+</resources>

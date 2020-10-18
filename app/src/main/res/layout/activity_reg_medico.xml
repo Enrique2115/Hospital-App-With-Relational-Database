@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.RegMedico">
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="@string/registrar_medico"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/inputNombre"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:hint="@string/nombre"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv1" />
+
+    <EditText
+        android:id="@+id/inputApellido"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="@string/apellido"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@id/inputNombre"
+        app:layout_constraintStart_toStartOf="@id/inputNombre"
+        app:layout_constraintTop_toBottomOf="@id/inputNombre" />
+
+    <EditText
+        android:id="@+id/inputEspecialidad"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="@string/especialidad"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@id/inputApellido"
+        app:layout_constraintStart_toStartOf="@id/inputApellido"
+        app:layout_constraintTop_toBottomOf="@id/inputApellido" />
+
+    <EditText
+        android:id="@+id/inputCorreo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="@string/correo"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@id/inputEspecialidad"
+        app:layout_constraintStart_toStartOf="@id/inputEspecialidad"
+        app:layout_constraintTop_toBottomOf="@id/inputEspecialidad" />
+
+
+    <EditText
+        android:id="@+id/inputTelefono"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="@string/telefono"
+        android:importantForAutofill="no"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="@id/inputCorreo"
+        app:layout_constraintStart_toStartOf="@id/inputCorreo"
+        app:layout_constraintTop_toBottomOf="@id/inputCorreo" />
+
+    <Button
+        android:id="@+id/btnRegistrarMedico"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/ripple_buttons"
+        android:text="@string/registrar"
+        app:layout_constraintEnd_toEndOf="@id/inputTelefono"
+        app:layout_constraintStart_toStartOf="@id/inputTelefono"
+        app:layout_constraintTop_toBottomOf="@id/inputTelefono" />
+
+    <Button
+        android:id="@+id/btnlistar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/ripple_buttons"
+        android:text="Listar Momentaneo"
+        app:layout_constraintEnd_toEndOf="@id/btnRegistrarMedico"
+        app:layout_constraintStart_toStartOf="@id/btnRegistrarMedico"
+        app:layout_constraintTop_toBottomOf="@id/btnRegistrarMedico" />
+</androidx.constraintlayout.widget.ConstraintLayout>
