@@ -25,6 +25,10 @@ public class ControladorDAO {
     ArrayList<Cita> listCitas;
     ArrayList<Paciente> listPacientes;
 
+    //ArrayList Usados para llenar los combos
+    ArrayList<String> listaPacientes;
+    ArrayList<String> listaMedicos;
+
     public ControladorDAO(Context context) {
         mySQLiteHelper = new MySQLiteHelper(context);
     }
@@ -156,5 +160,65 @@ public class ControladorDAO {
         }
 
         return listPacientes;
+    }
+
+    public ArrayList<String> llenarComboPacientes() {
+        listPacientes = new ArrayList<>();
+        listaPacientes = new ArrayList<>();
+
+        try {
+            this.open();
+            c = database.rawQuery("SELECT * FROM " + Utilidades.tablaPaci, null);
+
+            while (c.moveToNext()) {
+                Paciente obj = new Paciente();
+                obj.setIdPaciente(c.getInt(0));
+                obj.setNombre(c.getString(1));
+                listPacientes.add(obj);
+            }
+
+            listaPacientes.add("Seleccione");
+
+            for (Paciente obj : listPacientes) {
+                listaPacientes.add(obj.getIdPaciente() + " - " + obj.getNombre());
+            }
+
+            c.close();
+            this.close();
+        } catch (Exception e) {
+            Log.d("e_listadoPaciente", String.valueOf(e.getCause()));
+        }
+
+        return listaPacientes;
+    }
+
+    public ArrayList<String> llenarComboMedicos() {
+        listMedicos = new ArrayList<>();
+        listaMedicos = new ArrayList<>();
+
+        try {
+            this.open();
+            c = database.rawQuery("SELECT * FROM " + Utilidades.tablaMedico, null);
+
+            while (c.moveToNext()) {
+                Medico obj = new Medico();
+                obj.setIdMedico(c.getInt(0));
+                obj.setNombre(c.getString(1));
+                listMedicos.add(obj);
+            }
+
+            listaMedicos.add("Seleccione");
+
+            for (Medico obj : listMedicos) {
+                listaMedicos.add(obj.getIdMedico() + " - " + obj.getNombre());
+            }
+
+            c.close();
+            this.close();
+        } catch (Exception e) {
+            Log.d("e_listadoPaciente", String.valueOf(e.getCause()));
+        }
+
+        return listaMedicos;
     }
 }
