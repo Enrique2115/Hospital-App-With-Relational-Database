@@ -162,6 +162,11 @@ public class ControladorDAO {
         return listPacientes;
     }
 
+    /**
+     * Metodo que nos permitira traer la informacion de la base de datos para luego llenar el combo Paciente
+     *
+     * @return retornara un Arraylist tipo cadena con la informacion solicitada
+     */
     public ArrayList<String> llenarComboPacientes() {
         listPacientes = new ArrayList<>();
         listaPacientes = new ArrayList<>();
@@ -177,7 +182,7 @@ public class ControladorDAO {
                 listPacientes.add(obj);
             }
 
-            listaPacientes.add("Seleccione");
+            //listaPacientes.add("Seleccione");
 
             for (Paciente obj : listPacientes) {
                 listaPacientes.add(obj.getIdPaciente() + " - " + obj.getNombre());
@@ -192,6 +197,11 @@ public class ControladorDAO {
         return listaPacientes;
     }
 
+    /**
+     * Metodo que nos permitira traer la informacion de la base de datos para luego llenar el combo Medico
+     *
+     * @return retornara un Arraylist tipo cadena con la informacion solicitada
+     */
     public ArrayList<String> llenarComboMedicos() {
         listMedicos = new ArrayList<>();
         listaMedicos = new ArrayList<>();
@@ -207,7 +217,7 @@ public class ControladorDAO {
                 listMedicos.add(obj);
             }
 
-            listaMedicos.add("Seleccione");
+            //listaMedicos.add("Seleccione");
 
             for (Medico obj : listMedicos) {
                 listaMedicos.add(obj.getIdMedico() + " - " + obj.getNombre());
@@ -221,4 +231,26 @@ public class ControladorDAO {
 
         return listaMedicos;
     }
+
+    public long insertCita(String consulta, int precio, int idMedico, int idPaciente){
+        try {
+            this.open();
+
+            valores.put(Utilidades.consulta, consulta);
+            valores.put(Utilidades.precio, precio);
+            valores.put(Utilidades.idMedi, idMedico);
+            valores.put(Utilidades.idPaci, idPaciente);
+
+            estado = database.insert(Utilidades.tablaCita, null, valores);
+            this.close();
+
+        } catch (Exception e) {
+            Log.d("e_insertPaciente", String.valueOf(e.getCause()));
+            estado = 0;
+        }
+        return estado;
+    }
+
+    // consulta para hacer el listado de citas
+    // select m.nombre "Nombre medico",p.nombre "Nombre Paciente", c.consulta, c.precio from cita c INNER JOIN PACIENTE p on c.idPaciente = p.idPaciente INNER JOIN MEDICO m on c.idMedico = m.idMedico
 }
