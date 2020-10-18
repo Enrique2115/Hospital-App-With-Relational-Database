@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.RegAgenda">
+
+    <TextView
+        android:id="@+id/tvAgendar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/agendar_cita"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/inputConsulta"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:hint="@string/registre_su_consulta"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAgendar"
+        app:layout_goneMarginStart="40dp" />
+
+    <EditText
+        android:id="@+id/inputPrecio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="@string/digite_el_precio"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@id/inputConsulta"
+        app:layout_constraintStart_toStartOf="@id/inputConsulta"
+        app:layout_constraintTop_toBottomOf="@id/inputConsulta" />
+
+    <TextView
+        android:id="@+id/tvSeleccioneMedico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/seleccione_el_medico_a_tratar"
+        app:layout_constraintStart_toStartOf="@id/inputPrecio"
+        app:layout_constraintTop_toBottomOf="@id/inputPrecio" />
+
+    <Spinner
+        android:id="@+id/spMedico"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@id/inputPrecio"
+        app:layout_constraintStart_toStartOf="@id/tvSeleccioneMedico"
+        app:layout_constraintTop_toBottomOf="@id/tvSeleccioneMedico" />
+
+    <TextView
+        android:id="@+id/tvSeleccionePaciente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/seleccionel_paciente"
+        app:layout_constraintStart_toStartOf="@id/spMedico"
+        app:layout_constraintTop_toBottomOf="@id/spMedico" />
+
+    <Spinner
+        android:id="@+id/spPaciente"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@id/spMedico"
+        app:layout_constraintStart_toStartOf="@id/tvSeleccionePaciente"
+        app:layout_constraintTop_toBottomOf="@id/tvSeleccionePaciente" />
+
+    <Button
+        android:id="@+id/btnAgendarCita"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/ripple_buttons"
+        android:text="@string/registrar_cita"
+        app:layout_constraintEnd_toEndOf="@id/spPaciente"
+        app:layout_constraintStart_toStartOf="@id/spPaciente"
+        app:layout_constraintTop_toBottomOf="@id/spPaciente" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
