@@ -53,7 +53,7 @@ public class RegMedico extends AppCompatActivity {
                 if (i == 0) {
                     Toast.makeText(getApplicationContext(), "No se realizo el registro", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(getApplicationContext(), "Se realizo el registro", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Se realizo el registro del Medico", Toast.LENGTH_SHORT).show();
                     inputNombre.setText("");
                     inputApellido.setText("");
                     inputCorreo.setText("");
