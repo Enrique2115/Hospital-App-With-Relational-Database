@@ -18,4 +18,5 @@
     <string name="seleccione_el_medico_a_tratar">Seleccione el Medico a Tratar</string>
     <string name="registrar_cita">Registrar Cita</string>
     <string name="seleccionel_paciente">Seleccione el Paciente</string>
+    <string name="lista_de_citas_realizadas">Lista de Citas Realizadas</string>
 </resources>
