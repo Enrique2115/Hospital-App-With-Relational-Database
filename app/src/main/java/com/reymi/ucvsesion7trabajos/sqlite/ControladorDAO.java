@@ -214,13 +214,14 @@ public class ControladorDAO {
                 Medico obj = new Medico();
                 obj.setIdMedico(c.getInt(0));
                 obj.setNombre(c.getString(1));
+                obj.setEspecialidad(c.getString(3));
                 listMedicos.add(obj);
             }
 
             //listaMedicos.add("Seleccione");
 
             for (Medico obj : listMedicos) {
-                listaMedicos.add(obj.getIdMedico() + " - " + obj.getNombre());
+                listaMedicos.add(obj.getNombre() + " - " + obj.getEspecialidad());
             }
 
             c.close();
@@ -232,7 +233,7 @@ public class ControladorDAO {
         return listaMedicos;
     }
 
-    public long insertCita(String consulta, int precio, int idMedico, int idPaciente){
+    public long insertCita(String consulta, int precio, int idMedico, int idPaciente) {
         try {
             this.open();
 
@@ -252,5 +253,27 @@ public class ControladorDAO {
     }
 
     // consulta para hacer el listado de citas
-    // select m.nombre "Nombre medico",p.nombre "Nombre Paciente", c.consulta, c.precio from cita c INNER JOIN PACIENTE p on c.idPaciente = p.idPaciente INNER JOIN MEDICO m on c.idMedico = m.idMedico
+    // SELECT m.nombre "Nombre medico", p.nombre "Nombre Paciente", c.consulta, c.precio FROM CITA c INNER JOIN PACIENTE p on c.idPaciente = p.idPaciente INNER JOIN MEDICO m on c.idMedico = m.idMedico
+    public ArrayList<Cita> listarCitas() {
+        listCitas = new ArrayList<>();
+        try {
+            this.open();
+            c = database.rawQuery("SELECT m.nombre, p.nombre, c.consulta, c.precio FROM CITA c INNER JOIN PACIENTE p ON c.idPaciente = p.idPaciente INNER JOIN MEDICO m ON c.idMedico = m.idMedico", null);
+            while (c.moveToNext()) {
+                Cita obj = new Cita();
+                obj.setNomMedico(c.getString(0));
+                obj.setNomPaciente(c.getString(1));
+                obj.setConsulta(c.getString(2));
+                obj.setPrecio(c.getInt(3));
+                listCitas.add(obj);
+            }
+            c.close();
+            this.close();
+
+        } catch (Exception e) {
+            Log.d("e_listadoPaciente", String.valueOf(e.getCause()));
+        }
+
+        return listCitas;
+    }
 }
