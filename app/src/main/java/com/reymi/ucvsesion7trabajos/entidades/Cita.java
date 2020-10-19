@@ -4,18 +4,18 @@ public class Cita {
     private int idCita;
     private String consulta;
     private int precio;
-    private int idMedico;
-    private int idPaciente;
+    private String nomMedico;
+    private String nomPaciente;
 
     public Cita() {
     }
 
-    public Cita(int idCita, String consulta, int precio, int idMedico, int idPaciente) {
+    public Cita(int idCita, String consulta, int precio, String nomMedico, String nomPaciente) {
         this.idCita = idCita;
         this.consulta = consulta;
         this.precio = precio;
-        this.idMedico = idMedico;
-        this.idPaciente = idPaciente;
+        this.nomMedico = nomMedico;
+        this.nomPaciente = nomPaciente;
     }
 
     public int getIdCita() {
@@ -42,19 +42,19 @@ public class Cita {
         this.precio = precio;
     }
 
-    public int getIdMedico() {
-        return idMedico;
+    public String getNomMedico() {
+        return nomMedico;
     }
 
-    public void setIdMedico(int idMedico) {
-        this.idMedico = idMedico;
+    public void setNomMedico(String nomMedico) {
+        this.nomMedico = nomMedico;
     }
 
-    public int getIdPaciente() {
-        return idPaciente;
+    public String getNomPaciente() {
+        return nomPaciente;
     }
 
-    public void setIdPaciente(int idPaciente) {
-        this.idPaciente = idPaciente;
+    public void setNomPaciente(String nomPaciente) {
+        this.nomPaciente = nomPaciente;
     }
 }
